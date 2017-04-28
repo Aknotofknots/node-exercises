@@ -99,6 +99,8 @@
 // }).listen(8080);
 
 const http = require('http');
+const readAndPrint = require('../exercise_3_filesystem_module/index');
+
 http.createServer(function (request, response) {
     request.on('error', function (err) {
         console.error(err);
@@ -109,6 +111,7 @@ http.createServer(function (request, response) {
         console.error(err);
     });
     if (request.method === 'GET' && request.url === '/echo') {
+        response.write("hthth");
         request.pipe(response);
 
     } else {
