@@ -12,7 +12,7 @@ fs.writeFile('hej.js','(function(){console.log("hej")}());', (err) => {
 //This is an example of reading a textfile stream and putting the resulting bytes of that stream in an array
 // and then print out the length and the the contents of every index in the array.
 
-module.exports = {
+App = {
     fs: require('fs'),
 
 /**
@@ -60,4 +60,3 @@ module.exports = {
         return fs.createReadStream(fileName + '.txt', {encoding: "hex"});
     },
 };
-//TODO make a model out of this, instead of App make an module.exports object and require it in the exercise_2 module

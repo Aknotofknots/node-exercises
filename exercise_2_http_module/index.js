@@ -1,4 +1,11 @@
-//
+// this example is taken from //https://www.quora.com/What-is-an-echo-server-in-Node-js
+const http = require('http');
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end("asefsefs");
+}).listen(8080);
+console.log('Server running at http://127.0.0.1:6789/');
+
 // //The function that's passed in to createServer is called once
 // // for every HTTP request that's made against that server, so it's called the request handler.
 //  const http = require('http');
@@ -98,34 +105,25 @@
 //     }
 // }).listen(8080);
 
-const http = require('http');
-const readAndPrint = require('../exercise_3_filesystem_module/index');
-
-http.createServer(function (request, response) {
-    request.on('error', function (err) {
-        console.error(err);
-        response.statusCode = 400;
-        response.end();
-    });
-    response.on('error', function (err) {
-        console.error(err);
-    });
-    if (request.method === 'GET' && request.url === '/echo') {
-        response.write("hthth");
-        request.pipe(response);
-
-    } else {
-        response.statusCode = 404;
-        console.log(response.statusCode);
-        response.end();
-    }
-}).listen(8080);
-
-
-// this example is taken from //https://www.quora.com/What-is-an-echo-server-in-Node-js
-// var http = require('http');
-// http.createServer(function (req, res) {
-//     res.writeHead(200, {'Content-Type': 'text/plain'});
-//     res.end(req.url);
+// const http = require('http');
+// const readAndPrint = require('../exercise_3_and_4_filesystem_module/index');
+//
+// http.createServer(function (request, response) {
+//     request.on('error', function (err) {
+//         console.error(err);
+//         response.statusCode = 400;
+//         response.end();
+//     });
+//     response.on('error', function (err) {
+//         console.error(err);
+//     });
+//     if (request.method === 'GET' && request.url === '/echo') {
+//         response.write("hthth");
+//         request.pipe(response);
+//
+//     } else {
+//         response.statusCode = 404;
+//         console.log(response.statusCode);
+//         response.end();
+//     }
 // }).listen(8080);
-// console.log('Server running at http://127.0.0.1:6789/');
